@@ -16,7 +16,9 @@ Scale all the table of a page
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="spidocheScaler.js"></script>
 <script>
-    $('table').spidochescaler();
+    jQuery(function($){
+        $('table').spidochescaler();
+    });
 </script>
 ```
 
