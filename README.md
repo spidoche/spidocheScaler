@@ -2,6 +2,7 @@
 
 ## What?
 SpidocheScaler is a responsive DOM scaler
+
 DEMO : http://spidoche.com/spidocheScaler/
 
 ## Why?
