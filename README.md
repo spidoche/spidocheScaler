@@ -6,7 +6,9 @@ SpidocheScaler is a responsive DOM scaler
 DEMO : http://spidoche.com/spidocheScaler/
 
 ## Why?
-This jQuery plugin is perfect to deal with complexe table on mobile when client do not like table scroll overflow style, you can resize the table without breaking the layout.
+This jQuery plugin is perfect to deal with complexe table on mobile when your client or your boss do not like table scroll overflow style ;) 
+
+With spidocheScaler you can resize your table without breaking the layout.
 
 Of course you have to enable the zoom on mobile devices to keep a good user experiences.
 
