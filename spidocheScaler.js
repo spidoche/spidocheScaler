@@ -1,3 +1,15 @@
+/*!
+ * SpidocheScaler - Scale the dom width jQuery
+ *
+ * Version    : 1.1.0
+ * Author     : Spidoche - spidoche.com
+ * Require    : jQuery v1.7.2 or later
+ * IE support : ie9 or later
+ *
+ * Plugin URL : https://github.com/spidoche/spidocheScaler
+ * Demo URL   : http://spidoche.com/spidocheScaler/
+ */
+
 /** jshint -W117 */
 /** jshint -W098 */
 
@@ -5,51 +17,68 @@
 
     $.fn.spidochescaler = function(options){
 
-        //Set the option
+        //Set the options
         var settings = $.extend({
-            base_width : 800,
+            breakpoint : 800,
         },options);
 
         return this.each(function(){
 
             var $this = $(this);
+            var $container = null;
 
-            $this.css({
-                width: settings.base_width
-            });
-            $this.wrap('<div class="spidoche-scale-container" />');
+            // create a warpper
+            $this.wrap('<div class="spidochescaler-container" />');
+            $container = $this.parent();
 
-            var $table_container = $this.parent();
-            var basetable_width  = $this.width();
-            var basetable_height = $this.height();
-            var basetable_scale  = 1;
-            var basetable_scaleX = 1;
-            var basetable_scaleY = 1;
+            // scale on load
+            scale_dom($this, $container, $this.parent().width(), $this.height());
 
-            scale_table($this, $this.parent().width(), $this.height());
-
+            // scale on resize
             $(window).resize(function () {
-                 scale_table($this, $this.parent().width(), $this.height());
+                 scale_dom($this, $container, $this.parent().width(), $this.height());
             });
-
-
-            function scale_table(table, maxWidth, maxHeight) {
-
-              var scaleX = 1, scaleY = 1;
-              scaleX = maxWidth / basetable_width;
-              scaleY = maxHeight / basetable_height;
-              basetable_scaleX = scaleX;
-              basetable_scaleY = scaleY;
-              basetable_scale = (scaleX > scaleY) ? scaleY : scaleX;
-
-              $table_container.height(basetable_height*basetable_scale);
-              table.css({
-                  transformOrigin: "0 0",
-                  transform: 'scale(' + basetable_scale + ')'
-              });
-            }
 
         });// END each
+
+        function scale_dom($el, $container, maxWidth, maxHeight) {
+
+            // Remove or set breakpoint
+            if($container.width() > settings.breakpoint){
+                $el.removeAttr('style').parent().removeAttr('style');
+                return;
+            }else{
+                $el.css({width: settings.breakpoint});
+            }
+
+            // init some variable
+            var scaleX = 1,
+                scaleY = 1,
+                base_scale  = 1,
+                base_scaleX = 1,
+                base_scaleY = 1;
+
+            // get element base dimension
+            var base_width  = $el.width(),
+                base_height = $el.height();
+
+            // set the dimension
+            scaleX = maxWidth / base_width;
+            scaleY = maxHeight / base_height;
+            base_scaleX = scaleX;
+            base_scaleY = scaleY;
+            base_scale = (scaleX > scaleY) ? scaleY : scaleX;
+
+            // Apply dimension
+            $container.height(base_height*base_scale);
+
+            $el.css({
+                width : settings.breakpoint,
+                transformOrigin : "0 0",
+                transform : 'scale(' + base_scale + ')'
+            });
+
+        }
 
    }; //END spidocheScale
 
