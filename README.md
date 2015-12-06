@@ -24,7 +24,7 @@ Scale all the table of a page
 </script>
 ```
 
-You can adjust the max-width of the DOM part you want to scale with the option 'base_width' (the default value is 800 px)
+You can adjust the max-width of the DOM part you want to scale with the option 'breakpoint' (the default value is 800 px)
 ```
-$('table').spidochescaler({base_width:500});
+$('table').spidochescaler({breakpoint:500});
 ```
