@@ -4,6 +4,7 @@
 SpidocheScaler is a responsive DOM scaler
 
 DEMO : http://spidoche.com/spidocheScaler/
+![alt tag](spidocheScaler.gif)
 
 ## Why?
 This jQuery plugin is perfect to deal with complexe table on mobile when your client or your boss do not like table scroll overflow style ;) 
