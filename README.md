@@ -24,12 +24,12 @@ Scale all the table of a page
 </script>
 ```
 
-You can adjust the max-width of the DOM part you want to scale with the option 'maxWidth' (the default value is 800 px)
+You can adjust the max-width of the DOM part you want to scale with the option 'maxWidth' (the default value is 800 px).
 ```
 $('table').spidochescaler({maxWidth:500});
 ```
 
-If for some reason you want to destroy (kill) spidocheScaler at a specific breakpoint, you can use the option 'destroyAt'
+If for some reason you want to destroy (kill) spidocheScaler at a specific breakpoint, you can use the option 'destroyAt'.
 ```
 $('table').spidochescaler({destroyAt:375});
 ```
