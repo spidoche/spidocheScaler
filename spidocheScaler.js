@@ -1,7 +1,7 @@
 /*!
  * SpidocheScaler - Scale the dom width jQuery
  *
- * Version    : 1.2.2
+ * Version    : 1.2.3
  * Author     : Spidoche - spidoche.com
  * Require    : jQuery v1.7.2 or later
  * IE support : ie9 or later
@@ -52,7 +52,7 @@
             $container = $el.parent();
 
             // Scale on load
-            that.scale_dom($el, $container, $container.width(), $el.height());
+            that.scale_dom($el, $container, $container.width(), $el.outerHeight(true));
 
         },
         scale_dom: function($el, $container, maxWidth, maxHeight) {
@@ -77,7 +77,7 @@
 
             // Get element base dimension
             var base_width  = $el.width(),
-                base_height = $el.height();
+                base_height = $el.outerHeight(true);
 
             // Set the dimension
             scaleX = maxWidth / base_width;
@@ -89,12 +89,19 @@
             // Apply dimension if sup to minWidth !BETA TEST
             if($container.width() > settings.minWidth){
                 if($container.hasClass('spidochescaler-container')){
-                    $container.height(base_height*base_scale);
+                    $container.css({
+                        height: base_height*base_scale,
+                        // Fix issue when container has float (since 1.2.3)
+                        display: 'inline-block',
+                        width: '100%',
+                        verticalAlign: 'top'
+                    });
                 }
 
                 $el.css({
                     width : settings.maxWidth,
-                    transformOrigin : "0 0",
+                    margin: 0,
+                    transformOrigin : '0 0',
                     transform : 'scale(' + base_scale + ')'
                 });
             }
@@ -112,7 +119,7 @@
             $(window).on('resize.domScaler.'+that.uid,function () {
                 //console.log(that.is_init);
                 if($(window).width() > destroy_at && that.is_init === true ){
-                    that.scale_dom($el, $container, $container.width(), $el.height());
+                    that.scale_dom($el, $container, $container.width(), $el.outerHeight(true));
                 }else if($(window).width() <= destroy_at && that.is_init === true){
                     that.destroy();
                     //console.log('dd');

@@ -11,7 +11,7 @@
 
     <style>
         /* DEMO STYLE*/
-        html,body, div, table{padding: 0; margin: 0}
+        html,body, div, table, ul, li{padding: 0; margin: 0}
 
         a{overflow-wrap: break-word;}
 
@@ -36,6 +36,11 @@
         #graph li:nth-child(4) { left: 520px; top: 60px;}
         #graph li:nth-child(5) { left: 90px; top: 310px;}
         #graph li:nth-child(6) { left: 270px; top: 260px;}
+
+        #float_test{float: left; width: 100%}
+        #float_test > div{ float:left;width: 50%; font-size: 60px; height: 300px; background: #384458; color: #fff; text-align: center; padding-top: 100px;}
+        #float_test > div:first-child{ background: #a7a7a7;}
+
     </style>
 </head>
 <body>
@@ -164,6 +169,18 @@
         </ul>
     </div>
 
+
+    <div id="float_test">
+        <div>Float Test</div>
+        <div>Float Test</div>
+    </div>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+
+
 </div><!-- .main_container -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -171,6 +188,7 @@
 <script>
     $('table').spidochescaler({destroyAt:400});
     $('#graph').spidochescaler({maxWidth:650});
+    $('#float_test').spidochescaler();
 
     $('#destroy').on('click',function(){
         $('table').spidochescaler('destroy');

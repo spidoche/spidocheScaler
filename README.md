@@ -1,4 +1,4 @@
-#SpidocheScaler
+#SpidocheScaler (version 1.2.3)
 
 ## What?
 SpidocheScaler is a responsive DOM scaler
@@ -6,7 +6,7 @@ SpidocheScaler is a responsive DOM scaler
 DEMO : http://spidoche.com/spidocheScaler/
 
 ## Why?
-This jQuery plugin is perfect to deal with complexe table on mobile when your client or your boss do not like table scroll overflow style ;) 
+This jQuery plugin is perfect to deal with complexe table on mobile when your client or your boss do not like table scroll overflow style ;)
 
 With spidocheScaler you can resize your table without breaking the layout.
 
@@ -33,3 +33,4 @@ If for some reason you want to destroy (kill) spidocheScaler at a specific break
 ```
 $('table').spidochescaler({destroyAt:375});
 ```
+
